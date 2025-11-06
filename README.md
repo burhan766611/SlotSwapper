@@ -1,5 +1,7 @@
 # SlotSwapper
 
+[🌐 **Live Demo**](https://slotswap1.netlify.app/)
+
 SlotSwapper is a full stack MERN web application that allows users to create and manage their event slots and swap them with other users.  
 It helps users manage schedules easily and handle slot swapping requests in a smooth way.
 
