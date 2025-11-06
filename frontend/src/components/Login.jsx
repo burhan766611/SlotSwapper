@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import API from "../services/api";
 import { useNavigate } from "react-router-dom";
+import { useAlert } from "./AlertContext";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { showAlert } = useAlert();
   const [loading, setLoading] = useState(false);
   const [loginData, setLoginData] = useState({
     email: "",
@@ -22,12 +24,10 @@ const Login = () => {
     try {
       const res = await API.post("/auth/login", loginData);
       if (res.data.result) {
-        alert(res.data.msg);
-        console.log(window.location.pathname);
-        console.log("Navigating to dashboard...");
+        showAlert("Welcome Back !", res.data.msg, "success")
         navigate("/dashboard");
       } else {
-        alert(res.data.msg);
+        showAlert("Login Failed", res.data.msg, "error")
       }
     } catch (err) {
       console.log(err);

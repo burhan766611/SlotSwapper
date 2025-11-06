@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import API from "../services/api";
 import { useNavigate } from "react-router-dom";
+import { useAlert } from "./AlertContext";
 
 const Signup = () => {
   const navigate = useNavigate();
+  const { showAlert } = useAlert();
   const [loading, setLoading] = useState(false);
   const [signupData, setSignupData] = useState({
     username: "",
@@ -19,10 +21,10 @@ const Signup = () => {
     try {
       const res = await API.post("/auth/signup", signupData);
       if(res.data.result){
-        alert(res.data.msg);
+        showAlert("Sign up Successfull", res.data.msg, "success")
         navigate("/dashboard")
       }else{
-        alert(res.data.msg);
+        showAlert("Sign up Failed", res.data.msg, "error")
       }
     } catch (err) {
       console.log(err);
@@ -104,10 +106,10 @@ const Signup = () => {
 
             <button
               type="submit"
-              className=" h-10 w-30 mt-10 bg-amber-400 hover:bg-amber-500 text-black font-semibold text-lg px-10 py-2 rounded-xl shadow-md hover:shadow-amber-400/40 transition-all duration-300"
+              className=" h-10 w-30 mt-10 bg-amber-400 hover:bg-amber-500 text-black font-semibold text-lg px-5 py-2 rounded-xl shadow-md hover:shadow-amber-400/40 transition-all duration-300"
               disabled={loading}
             >
-              {loading ? "Wait.." : "Login"} 
+              {loading ? "Wait.." : "Submit"} 
             </button>
           </form>
         </div>

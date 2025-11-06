@@ -1,4 +1,3 @@
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { useRef } from "react";
 import Login from "./Login";
@@ -135,20 +134,20 @@ const Home = () => {
         <div className="h-full w-[55%] bg-indigo-400">
           <div className="h-[30%] w-full relative">
             <div
-              className="h-[20%] w-[16%] text-3xl font-bold absolute left-[40%] top-[60%] cursor-pointer z-10"
+              className="h-[20%] w-[16%] [font-size:2vw] font-bold absolute left-[40%] top-[59%] cursor-pointer z-10"
               onClick={() => handleToggle("signup")}
             >
-              <h1>Sign Up</h1>
+              <p>SignUp</p>
             </div>
             <div
-              className="h-[20%] w-[16%] text-3xl font-bold absolute left-[58%] top-[60%] cursor-pointer z-10"
+              className="h-[20%] w-[16%] [font-size:2vw] font-bold absolute left-[58%] top-[59%] cursor-pointer z-10"
               onClick={() => handleToggle("login")}
             >
-              <h1>Login</h1>
+              <p>Login</p>
             </div>
             <div
               ref={barRef}
-              className="h-[20%] w-[16%] bg-black rounded-3xl absolute top-[57%] opacity-25"
+              className="h-[4lvw] w-[9lvw] bg-black rounded-3xl absolute top-[57%] opacity-25"
               style={{ left: "38%" }}
             ></div>
           </div>
